@@ -1,7 +1,6 @@
 var g = document.getElementsByClassName('commentarea');
 var authors = {};
 for(let item of g[0].getElementsByClassName('author')) {
-    item.style.backgroundColor = '#e8453c';
     let currCount = authors[item.text].count;
     if(currCount == undefined) {
         currCount = 0;
@@ -12,6 +11,17 @@ for(let item of g[0].getElementsByClassName('author')) {
 
 var tuples = [];
 
-for (var key in obj) tuples.push([key, obj[key]]);
+for (var key in authors) tuples.push([key, authors[key].count]);
 
 tuples.sort(function(a,b) { return a[1] - b[1]});
+
+topFive = tuples.slice(0, 5);
+console.log(topFive);
+
+for(let item of g[0].getElementsByClassName('author')) {
+    if(topFive.includes(item.text))
+    {
+        item.style.backgroundColor = '#e8453c';
+    }
+}
+
