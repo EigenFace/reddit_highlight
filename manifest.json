@@ -4,6 +4,10 @@
     "description": "An extension to humanize fellow redditors",
     "permissions": ["activeTab", "declarativeContent", "storage"],
     "options_page": "options.html",
+    "options_ui": {
+        "page" : "options/options.html",
+        "open_in_tab": true
+    },
     "background": {
         "scripts": ["background.js"],
         "persistent": false
